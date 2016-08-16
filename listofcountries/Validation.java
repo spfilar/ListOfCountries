@@ -16,13 +16,13 @@ public class Validation {
 		try {
 			int isValid = Integer.parseInt(validEntry);
 			if ((isValid < 0) || (isValid > 4)) {
-				System.out.println("Invalid entry. Please enter a number 1 - 4");
+				System.out.println("\nInvalid entry. Please enter a number 1 - 4");
 				return true;
 			}
 				return false;
 		}
 		catch (NumberFormatException e) {
-			System.out.println("Invalid entry. Please enter a number 1 - 4");
+			System.out.println("\nInvalid entry. Please enter a number 1 - 4");
 			return true;
 		}
 	}

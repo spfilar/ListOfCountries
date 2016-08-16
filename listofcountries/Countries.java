@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Countries {
 
-	
 	Scanner lc = new Scanner(System.in);
 	
 	String countryReader = null;
@@ -36,7 +35,7 @@ public class Countries {
 			case "3": ReadAndWrite reWrite = new ReadAndWrite();
 				reWrite.reWriter();
 				runCountries();
-			case "4": System.out.println("Thanks for using the application. Goodbye.");
+			case "4": System.out.println("\nThanks for using the application. Goodbye.");
 				System.exit(0);
 			default: runCountries();
 			}

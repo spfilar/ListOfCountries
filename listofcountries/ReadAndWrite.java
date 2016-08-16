@@ -68,7 +68,7 @@ public class ReadAndWrite {
 			e.printStackTrace();
 		}
 		
-		System.out.println("Please enter the country you would like to delete:");
+		System.out.println("\nPlease enter the country you would like to delete:");
 		String write = lc.nextLine();
 		
 		if (listOfCountries.contains(write)) {
@@ -78,7 +78,7 @@ public class ReadAndWrite {
 					break;
 				}
 			}
-		} else { System.out.println("Country not found.");
+		} else { System.out.println("\nCountry not found.");
 			listOfCountries.clear();
 			reWriter();
 		}
