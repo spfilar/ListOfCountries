@@ -21,7 +21,7 @@ public class Countries {
 
 	public void runCountries() {
 		
-		System.out.println("\n" + menu);
+		System.out.println(menu);
 		choice = lc.nextLine();
 		userInput = Validation.validateMove(choice);
 		

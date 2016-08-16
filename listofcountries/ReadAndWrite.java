@@ -3,8 +3,6 @@ package com.listofcountries;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class ReadAndWrite {
 
@@ -38,6 +36,7 @@ public class ReadAndWrite {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
 	
 	public void writer () {
@@ -53,12 +52,10 @@ public class ReadAndWrite {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		System.out.println("");
 	}
 	
 	public void reWriter () {
-		
-		System.out.println("Please enter the country you would like to delete:");
-		String userInput = lc.nextLine();
 		
 		try (BufferedReader reader = new BufferedReader(new FileReader(newFileObject))) {
 			
@@ -71,24 +68,33 @@ public class ReadAndWrite {
 			e.printStackTrace();
 		}
 		
-		for (int i = 0; i < listOfCountries.size(); i++) {
-			if (listOfCountries.get(i).equalsIgnoreCase(userInput)) {
-				listOfCountries.remove(i);
-				break;
+		System.out.println("Please enter the country you would like to delete:");
+		String write = lc.nextLine();
+		
+		if (listOfCountries.contains(write)) {
+			for (int i = 0; i < listOfCountries.size(); i++) {
+				if (listOfCountries.get(i).equalsIgnoreCase(write)) {
+					listOfCountries.remove(i);
+					break;
+				}
 			}
+		} else { System.out.println("Country not found.");
+			listOfCountries.clear();
+			reWriter();
 		}
 
-		try (BufferedWriter delete = new BufferedWriter(new FileWriter(newFileObject))) {
+		try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFileObject))) {
 			
 			for (int j = 0; j < listOfCountries.size(); j++) {
 				write = listOfCountries.get(j).toString();
-				delete.append(write + "\n");
+				writer.append(write + "\n");
 	
-			} delete.close();
+			} writer.close();
 	
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
+		System.out.println("");
 	}
 
 	public String getCountries() {
@@ -106,6 +112,4 @@ public class ReadAndWrite {
 	public void setWrite(String write) {
 		this.write = write;
 	}
-	
-	
 }
