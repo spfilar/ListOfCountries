@@ -20,8 +20,8 @@ public class Countries {
 
 	public void runCountries() {
 		
-		System.out.println(menu);
-		choice = lc.nextLine();
+		welcomeToCountriesList();
+		
 		userInput = Validation.validateMove(choice);
 		
 		do {			
@@ -43,11 +43,15 @@ public class Countries {
 	}
 	
 	public Countries() {
-		menu = "Countries List"
-				+ "\nPlease select from the menu:"
-				+ "\n(1) Display a list of countries."
-				+ "\n(2) Enter a country to add to the list of countries."
-				+ "\n(3) Delete a country from the list."
-				+ "\n(4) Exit the application.";
+	}
+	
+	public void welcomeToCountriesList() {
+		System.out.println("Countries List");
+		System.out.println("Please select from the menu:");
+		System.out.println("(1) Display a list of countries.");
+		System.out.println("(2) Enter a country to add to the list of countries.");
+		System.out.println("(3) Delete a country from the list.");
+		System.out.println("(4) Exit the application.");
+		choice = lc.nextLine();
 	}
 }

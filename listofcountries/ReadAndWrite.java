@@ -57,12 +57,12 @@ public class ReadAndWrite {
 	
 	public void reWriter () {
 		
-		try (BufferedReader reader = new BufferedReader(new FileReader(newFileObject))) {
+		try (BufferedReader in = new BufferedReader(new FileReader(newFileObject))) {
 			
-			while((countries = reader.readLine()) != null) {
+			while((countries = in.readLine()) != null) {
 				listOfCountries.add(countries);
 				
-			} reader.close();
+			} in.close();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -82,19 +82,19 @@ public class ReadAndWrite {
 			listOfCountries.clear();
 			reWriter();
 		}
+		System.out.println(write + " has been deleted\n");
 
-		try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFileObject))) {
+		try (BufferedWriter out = new BufferedWriter(new FileWriter(newFileObject))) {
 			
 			for (int j = 0; j < listOfCountries.size(); j++) {
 				write = listOfCountries.get(j).toString();
-				writer.append(write + "\n");
+				out.append(write + "\n");
 	
-			} writer.close();
+			} out.close();
 	
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
-		System.out.println("");
 	}
 
 	public String getCountries() {
